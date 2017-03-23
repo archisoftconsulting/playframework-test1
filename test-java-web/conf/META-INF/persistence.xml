@@ -8,7 +8,7 @@ xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/x
             <jar-file>lib/User.jar</jar-file>
             <exclude-unlisted-classes>true</exclude-unlisted-classes>
             <properties> 
-                <property name="kundera.nodes" value="cassandra:cassandra"/>
+                <property name="kundera.nodes" value="cassandra"/>
                 <property name="kundera.port" value="9160"/> 
                 <property name="kundera.keyspace" value="kunderaexamples"/> 
                 <property name="kundera.dialect" value="cassandra"/> 
