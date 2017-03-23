@@ -1,0 +1,7 @@
+New log file opened at Thu Mar 23 11:12:20 SGT 2017 by 11192@idea-PC-368
+Taking next connection to: 60586
+New client attempting to connect on port: 60587-60586
+  Address = /192.168.56.1:60586
+This client on port 60587 has uuid 9c40d1ab-f648-4827-aa29-80daee4a4546 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
+Connected Clients: activator-9c40d1ab-f648-4827-aa29-80daee4a4546
+Taking next connection to: 60586

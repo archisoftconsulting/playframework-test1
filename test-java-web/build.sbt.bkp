@@ -1,0 +1,20 @@
+name := """test-java-web"""
+
+version := "1.0-SNAPSHOT"
+
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
+scalaVersion := "2.11.7"
+
+##libraryDependencies ++= Seq(
+##  javaJdbc,
+##  cache,
+##  javaWs
+##)
+
+libraryDependencies ++= Seq(
+  "com.impetus.kundera.core" % "kundera-core" % "3.8",
+  "com.impetus.kundera.client" % "kundera-cassandra" % "3.8"
+)
+
+fork in run := true

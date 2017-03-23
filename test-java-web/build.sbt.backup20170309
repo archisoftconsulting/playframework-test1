@@ -1,0 +1,28 @@
+name := """test-java-web"""
+
+version := "1.0-SNAPSHOT"
+
+lazy val root = (project in file(".")).enablePlugins(PlayJava)
+
+scalaVersion := "2.11.7"
+
+
+libraryDependencies ++= Seq(
+  "com.impetus.kundera.core" % "kundera-core" % "3.8",
+  "com.impetus.kundera.client" % "kundera-cassandra" % "3.8",
+  "com.impetus.kundera.core" % "fallback-impl" % "3.8",
+  "org.apache.cassandra" % "cassandra-thrift" % "3.10"
+)
+
+
+        
+        
+
+resolvers ++= Seq(
+  Resolver.url("Kundera", new URL("https://oss.sonatype.org/content/repositories/releases/"))(Resolver.ivyStylePatterns),
+  Resolver.url("Riptano", new URL("http://mvn.riptano.com/content/repositories/public/"))(Resolver.ivyStylePatterns),
+  Resolver.url("Kundera missing", new URL("http://kundera.googlecode.com/svn/maven2/maven-missing-resources/"))(Resolver.ivyStylePatterns),
+  Resolver.url("Scale 7", new URL("https://github.com/s7/mvnrepo/raw/master/"))(Resolver.ivyStylePatterns)
+)
+
+fork in run := true
