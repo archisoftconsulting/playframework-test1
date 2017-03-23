@@ -47,3 +47,11 @@ Filters
 - ExampleFilter.java
 
   A simple filter that adds a header to every response.
+  
+  
+  Step To Test
+  ------------
+  
+  1. Enter url localhost:9000/persist to create a sample data.
+  2. Enter url localhost:9000/find to display json of data created.
+  3. Enter url localhost:9000/update to change sample data.
