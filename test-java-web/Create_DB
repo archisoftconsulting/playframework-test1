@@ -1,0 +1,6 @@
+cqlsh> create keyspace KunderaExamples
+... with replication = {'class':'SimpleStrategy','replication_factor':1};
+
+cqlsh> use KunderaExample;
+cqlsh:kunderaexamples> create table users (userId text primary key,
+... firstName text, lastName text, city text);
