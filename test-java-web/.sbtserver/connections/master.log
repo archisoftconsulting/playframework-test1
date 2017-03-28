@@ -1,7 +1,7 @@
-New log file opened at Thu Mar 23 11:12:20 SGT 2017 by 11192@idea-PC-368
-Taking next connection to: 60586
-New client attempting to connect on port: 60587-60586
-  Address = /192.168.56.1:60586
-This client on port 60587 has uuid 9c40d1ab-f648-4827-aa29-80daee4a4546 configName activator humanReadableName Activator protocolVersion 3 featureTags Vector()
-Connected Clients: activator-9c40d1ab-f648-4827-aa29-80daee4a4546
-Taking next connection to: 60586
+New log file opened at Tue Mar 28 09:05:56 SGT 2017 by 18620@idea-PC-368
+Taking next connection to: 53411
+New client attempting to connect on port: 53412-53411
+  Address = /192.168.56.1:53411
+This client on port 53412 has uuid 9c8e92d7-a7d7-4c5a-892a-23c6444598a0 configName play-fork-run humanReadableName Play Fork Run protocolVersion 1 featureTags Vector()
+Connected Clients: play-fork-run-9c8e92d7-a7d7-4c5a-892a-23c6444598a0
+Taking next connection to: 53411
