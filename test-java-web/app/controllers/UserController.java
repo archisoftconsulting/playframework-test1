@@ -55,6 +55,24 @@ public class UserController extends Controller
 		return ok(result); 
     } 
     
+    public Result all() 
+    {  
+        EntityManager em = getEmf().createEntityManager(); 
+        
+        
+        List<User> users = em.createQuery("SELECT e FROM User e").getResultList();
+        
+        
+        ObjectMapper mapper = new ObjectMapper();
+		JsonNode jsonData = mapper.convertValue(users, JsonNode.class);
+		
+		ObjectNode result = Json.newObject();
+		result.put("body", (JsonNode) jsonData);
+
+		em.close(); 
+		return ok(result); 
+    } 
+    
     public Result add() 
     {  
     	/*String userId = request().body().asFormUrlEncoded().get("userId")[0];
@@ -89,9 +107,23 @@ public class UserController extends Controller
     	
     	Map<String,String[]> data = request().body().asFormUrlEncoded();
     	String userId = request().body().asFormUrlEncoded().get("userId")[0]; 
-    	return ok(userId);
-       /* if(data == null){
-            return badRequest("Expceting some userId data");
+    	String firstName = request().body().asFormUrlEncoded().get("firstName")[0]; 
+    	String lastName = request().body().asFormUrlEncoded().get("lastName")[0]; 
+    	String city = request().body().asFormUrlEncoded().get("city")[0]; 
+    	
+    	EntityManager em = getEmf().createEntityManager(); 
+    	//em.getTransaction().begin();
+    	User user = new User(); 
+        user.setUserId(userId); 
+        user.setFirstName(firstName); 
+        user.setLastName(lastName); 
+        user.setCity(city);  
+        em.persist(user);
+        //em.getTransaction().commit();
+        em.close(); 
+    	//return ok(userId);
+        /*if(data == null){
+            return badRequest("Expecting some userId data");
         } else {
             String result = "";
             for(Map.Entry value : data.entrySet()){
@@ -100,7 +132,9 @@ public class UserController extends Controller
             return ok(result);
         }*/
         
+        String result = "User ID : " + userId + ", First Name : " + firstName + ", Last Name : " + lastName + ", City : " + city;
         
+        return ok(result);
     } 
     
     public Result update() 

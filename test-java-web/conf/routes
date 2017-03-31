@@ -18,6 +18,10 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 
 # Add User
 POST  	/add         controllers.UserController.add
+GET  	/add         controllers.UserController.add
+
+# All User
+GET  	/all         controllers.UserController.all
 
 # Persist Operation
 GET     /persist    controllers.UserController.persist
