@@ -8,10 +8,12 @@ import util.Util;
 import play.Play; 
 import play.mvc.Controller; 
 import play.mvc.Result; 
+import play.mvc.Http.RequestBody;
 import play.libs.Json;
 
 import java.util.Collection;
 import java.util.List; 
+import java.util.Map; 
 import javax.persistence.Query;
 
 import static play.libs.Json.toJson;
@@ -23,21 +25,10 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 public class UserController extends Controller 
 { 
-	//test
-    EntityManagerFactory emf; 
-    //EntityManager emgr;
+	EntityManagerFactory emf; 
     
-   // public UserController(EntityManager emg) {
-    //    this.emgr = emg; 
-  //}
-  
-    public Result persist() { 
-        
-        //Map<String, String> propertyMap = new HashMap<String, String>();
-        //propertyMap.put(CassandraConstants.CQL_VERSION, CassandraConstants.CQL_VERSION_3_0);
-        //EntityManagerFactory emf = Persistence.createEntityManagerFactory("cassandrapu", propertyMap);
-        //EntityManager em = emf.createEntityManager();
-    
+    public Result persist() 
+    { 
         EntityManager em = getEmf().createEntityManager(); 
         User user = new User(); 
         user.setUserId("0001"); 
@@ -49,58 +40,71 @@ public class UserController extends Controller
         return ok("User 0001 record persisted for persistence unit cassandra_pu"); 
     } 
     
-    public Result find() {  
+    public Result find() 
+    {  
         EntityManager em = getEmf().createEntityManager(); 
         User user = em.find(User.class, "0001"); 
-        //em.close(); 
         
-        //UserController service = new UserController(em);
-        //Collection<User> emps = service.findAllUsers(); 
-        
-        
-        //Query query = em.createQuery("SELECT a FROM users a");
-        //Collection<User> emps =  query.getResultList(); 
         ObjectMapper mapper = new ObjectMapper();
 		JsonNode jsonData = mapper.convertValue(user, JsonNode.class);
-		//JsonNode jsonData = mapper.createObjectNode();
-		
-        //List<User> user = findAll();
-        //Set<User> user = em.find(User.class);
-        //em.close(); 
-        //Set<Student> result = StudentStore.getInstance().getAllStudents();
-		
 		
 		ObjectNode result = Json.newObject();
 		result.put("body", (JsonNode) jsonData);
 
-		 
-		
-		
-		
 		em.close(); 
 		return ok(result); 
-		//return ok(Util.createResponse(user, true)); 
-		
-        //return ok("Found User in database with the following details:" + printUser(user)); 
     } 
     
-    //public List<User> findAll() {
+    public Result add() 
+    {  
+    	/*String userId = request().body().asFormUrlEncoded().get("userId")[0];
+    	String firstName = request().body().asFormUrlEncoded().get("firstName")[0];
+    	String lastName = request().body().asFormUrlEncoded().get("lastName")[0];
+    	String city = request().body().asFormUrlEncoded().get("city")[0];
+    	
+    	if (userId == null)
+    	{
+    		return badRequest("Expceting some userId data");
+    	}
+    	else 
+    	{
+    		 String result = "";
+    		 result += "\n" + userId;
+             return ok(result);
+    	}*/
+    	
+    	
+    	/*String userId = request().body().asFormUrlEncoded().get("userId")[0]; 
+    	if (userId == null)
+    	{
+    		return badRequest("Expceting some userId data");
+    	}
+    	else 
+    	{
+    		 String result = "";
+    		 result += "\n" + userId;
+             return ok(result);
+    	}*/
+    	
+    	
+    	Map<String,String[]> data = request().body().asFormUrlEncoded();
+    	String userId = request().body().asFormUrlEncoded().get("userId")[0]; 
+    	return ok(userId);
+       /* if(data == null){
+            return badRequest("Expceting some userId data");
+        } else {
+            String result = "";
+            for(Map.Entry value : data.entrySet()){
+            	result += "\n" + value.getValue();
+            }
+            return ok(result);
+        }*/
         
-    //    try {
-    //        String queryString = "select * from users model"; 
-    //        Query query = getEntityManager().createQuery(queryString);
-   //         return query.getResultList();
-   //     } catch (RuntimeException re) {
-   //         throw re;
-   //     }
-   // }
+        
+    } 
     
-    //public Collection<User> findAllUsers() {
-        //Query query = em.createQuery("SELECT e FROM users e");
-        //return (Collection<User>) query.getResultList();
-     // }
-    
-    public Result update() { 
+    public Result update() 
+    { 
         EntityManager em = getEmf().createEntityManager(); 
         User user = em.find(User.class, "0001");
         user.setCity("New York"); 
@@ -109,7 +113,8 @@ public class UserController extends Controller
         return ok("Record updated:" + printUser(user));
     } 
         
-    public Result delete() { 
+    public Result delete() 
+    { 
         EntityManager em = getEmf().createEntityManager(); 
         User user = em.find(User.class, "0001"); 
         em.remove(user); 
@@ -117,7 +122,8 @@ public class UserController extends Controller
         return ok("Record deleted:" + printUser(user)); 
     } 
     
-    private EntityManagerFactory getEmf() { 
+    private EntityManagerFactory getEmf() 
+    { 
         if (emf == null) 
         { 
             emf = Persistence.createEntityManagerFactory("cassandrapu"); 
@@ -125,7 +131,8 @@ public class UserController extends Controller
         return emf; 
     } 
     
-    private String printUser(User user) { 
+    private String printUser(User user) 
+    { 
         if (user == null) 
             return "Record not found"; 
         return "n--------------------------------------------------" + "nuserId:" + user.getUserId() + "nfirstName:" + user.getFirstName() + "nlastName:" + user.getLastName() + "ncity:" + user.getCity(); 
