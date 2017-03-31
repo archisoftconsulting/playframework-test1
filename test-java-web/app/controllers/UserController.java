@@ -72,7 +72,7 @@ public class UserController extends Controller
 		em.close(); 
 		return ok(result); 
     } 
-    
+    //test
     public Result add() 
     {  
     	/*String userId = request().body().asFormUrlEncoded().get("userId")[0];
