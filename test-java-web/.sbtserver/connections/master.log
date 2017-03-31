@@ -362,3 +362,9 @@ Taking next connection to: 62954
 Checking to see if clients are empty...
 We have 1 non-daemon clients, continuing serving connections.
 Taking next connection to: 62954
+Checking to see if clients are empty...
+No non-daemon clients connected after 3 min. Shutting down.
+Server socket thread exiting.
+0 clients open, will close them...
+All client sockets have been closed.
+Closing the 5860@idea-PC-368 logs at Fri Mar 31 16:35:58 SGT 2017, goodbye.

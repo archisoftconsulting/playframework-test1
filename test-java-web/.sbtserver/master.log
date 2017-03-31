@@ -67,3 +67,10 @@ Set current project to test-java-web (in build file:/C:/Users/mzaki/git/test-jav
 > iflast shell
 > server-send-ready-for-request
 > server-handle-next-server-request
+Done executing sbt server engine, result Right(Exit(0))
+Closing listening server socket
+Waiting for socket thread
+Waiting for request processor thread
+Waiting for command engine result
+Returning control to sbt launcher with result Exit(0)
+Closing the 5860@idea-PC-368 logs at Fri Mar 31 16:35:58 SGT 2017, goodbye.
