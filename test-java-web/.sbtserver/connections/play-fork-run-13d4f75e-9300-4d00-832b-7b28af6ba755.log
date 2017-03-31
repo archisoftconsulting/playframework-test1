@@ -65,3 +65,22 @@ Sending msg to client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755: Detach
 Sending msg to client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755: DetachedLogEvent(LogMessage(debug,> server-send-ready-for-request))
 Sending msg to client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755: BuildLoaded()
 Sending msg to client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755: DetachedLogEvent(LogMessage(debug,> server-handle-next-server-request))
+Got request: UnlistenToEvents()
+Reading next message from client.
+Sending msg to client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755: (4,ReceivedResponse())
+Got request: ListenToValue(AttributeKey[play.forkrun.protocol.ForkConfig]("playForkConfig") in Scope(Build: file:/C:/Users/mzaki/git/test-java-web/, , Project: ProjectReference(file:/C:/Users/mzaki/git/test-java-web/,root)))
+Reading next message from client.
+Got request: UnlistenToValue(AttributeKey[play.forkrun.protocol.ForkConfig]("playForkConfig") in Scope(Build: file:/C:/Users/mzaki/git/test-java-web/, , Project: ProjectReference(file:/C:/Users/mzaki/git/test-java-web/,root)))
+Reading next message from client.
+Got request: ListenToValue(AttributeKey[play.runsupport.Reloader$CompileResult]("playForkReload") in Scope(Build: file:/C:/Users/mzaki/git/test-java-web/, , Project: ProjectReference(file:/C:/Users/mzaki/git/test-java-web/,root)))
+Reading next message from client.
+Got request: UnlistenToValue(AttributeKey[play.runsupport.Reloader$CompileResult]("playForkReload") in Scope(Build: file:/C:/Users/mzaki/git/test-java-web/, , Project: ProjectReference(file:/C:/Users/mzaki/git/test-java-web/,root)))
+Reading next message from client.
+Client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755 closed, java.net.SocketException: Software caused connection abort: recv failed, shutting down
+Stopping client.
+Client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755 thread exiting.
+Dropping message (5,ReceivedResponse()) to dead client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755
+Dropping message (6,ReceivedResponse()) to dead client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755
+Dropping message (7,ReceivedResponse()) to dead client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755
+Dropping message (8,ReceivedResponse()) to dead client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755
+Dropping message (0,ReceivedResponse()) to dead client play-fork-run-13d4f75e-9300-4d00-832b-7b28af6ba755
