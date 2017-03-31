@@ -17,7 +17,7 @@ GET     /assets/*file               controllers.Assets.versioned(path="/public",
 ##GET /assets/*file controllers.Assets.at(path="/public", file)
 
 # Add User
-GET  	/add         controllers.UserController.add
+POST  	/add         controllers.UserController.add
 
 # Persist Operation
 GET     /persist    controllers.UserController.persist
